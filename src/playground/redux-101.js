@@ -1,45 +1,68 @@
 import {createStore} from "redux";
-const store = createStore((state = {count: 0}, action) => {
+
+// const incrementCount = (payload = {}) => ({
+//   type: "INCREMENT",
+//   incrementBy: typeof payload.incrementBy === "number" ? payload.incrementBy : 1
+// })
+//////// incrementCount can be simplyied as:       /////////
+const incrementCount = ({incrementBy = 1} = {}) => ({
+  type: "INCREMENT",
+  incrementBy
+  //   {incrementBy: incrementBy} can be simplied as: {incrementBy}
+})
+
+const decrementCount = ({decrementBy = 1} = {}) => ({
+  type: "DECREMENT",
+  decrementBy
+})
+
+const reset = () => ({
+  type: "RESET"
+})
+
+const set = ({set = 10} = {}) => ({
+  type: "SET",
+  set
+})
+
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case "INCREMENT":
-      const increment = typeof action.incrementBy === "number" ? action.incrementBy : 1;
       return {
-        count: state.count + increment
+        count: state.count + action.incrementBy
       }
     case "DECREMENT":
-    const decrementBy = typeof action.decrementBy === "number" ? action.decrementBy : 1;
       return {
-        count: state.count - decrementBy
+        count: state.count - action.decrementBy
       }
-    case "RESET": 
+    case "RESET":
       return {
         count: 0
+      }
+    case "SET":
+      return {
+        count: action.set
       }
     default:
       return state;
   }
-})
+}
 
-const sub = store.subscribe(() => {
-  console.log(store.getState())    
-})
+const store = createStore(countReducer);
+console.log(store.getState())
+// const sub = store.subscribe(() => {
+//   console.log(store.getState())    
+// })
 
 
 
-store.dispatch({
-  type: "INCREMENT"
-})
-store.dispatch({
-  type: "INCREMENT",
-  incrementBy: 5
-})
-store.dispatch({
-  type: "DECREMENT",
-  decrementBy: 10
-})
-store.dispatch({
-  type: "DECREMENT"
-})
-store.dispatch({
-  type: "RESET"
-})
+store.dispatch(incrementCount({incrementBy: 5}));
+store.dispatch(decrementCount({decrementBy: 20}));
+store.dispatch(reset());
+store.dispatch(set());
+// store.dispatch({
+//   type: "DECREMENT"
+// })
+// store.dispatch({
+//   type: "RESET"
+// })
