@@ -5,6 +5,7 @@ const Dashboard = () => (
   <div>
     This is ExpenseDashboard;
   </div>
+  
 )
 
 export default Dashboard;
