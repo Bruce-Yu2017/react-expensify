@@ -32,6 +32,6 @@ const AdminInfo = withAdminWarning(Info);
 const AuthInfo = requireAuthentication(Info);
 
 // ReactDOM.render(<AdminInfo isAdmin = {false} info = "There are the details." />, document.getElementById("app"));
-ReactDOM.render(<AuthInfo isAuthenticated = {true} info = "There are the details." />, document.getElementById("app"));
+ReactDOM.render(<AuthInfo isAuthenticated = {false} info = "There are the details." />, document.getElementById("app"));
 
 
