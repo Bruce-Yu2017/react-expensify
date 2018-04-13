@@ -17,7 +17,6 @@ const ExpenseList = (props) => (
 )
 
 const mapStateToProps = (state) => {
-  // console.log("state from com: ", state);
   return {
     expenses: selectExpenses(state.expenses, state.filters)
   }

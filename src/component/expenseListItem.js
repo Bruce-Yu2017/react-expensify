@@ -14,31 +14,6 @@ const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) => (
     >Remove</button>
   </div>
 )
-// class ExpenseListItem extends Component {
-//   render() {
-//     console.log(this.props);
-//     return (
-//       <div>
-//         <h3>{this.props.description}</h3>
-//         <p>{this.props.amount} - {this.props.createdAt}</p>
-//         <p>id: {this.props.id}</p>
-//         <button
-//           onClick={() => {
-//             console.log(this.props)
-//           }}
-//         >Remove</button>
-//       </div>
-//     )
-//   }
-  
-// }
-
-
-// const mapStateToProps = (state) => {
-//   return {
-//     expenses: state.expenses
-//   }
-// }
 
 
 export default connect()(ExpenseListItem);
