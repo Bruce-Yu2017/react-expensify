@@ -9,6 +9,7 @@ const Add = (props) => (
       onSubmit = {(expense) => {
         console.log(expense);
         props.dispatch(addExpense(expense));
+        props.history.push("/");
       }}
     />
   </div>

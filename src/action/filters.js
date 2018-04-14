@@ -14,12 +14,12 @@ export const sortByDate = () => ({
 })
 
 //START_DATE
-export const startDate = (startDate = "today") => ({
+export const setStartDate = (startDate = "today") => ({
   type: "START_DATE",
   startDate
 })
 //END_DATE
-export const endDate = (endDate = "tomorrow") => ({
+export const setEndDate = (endDate = "tomorrow") => ({
   type: "END_DATE",
   endDate
 })
