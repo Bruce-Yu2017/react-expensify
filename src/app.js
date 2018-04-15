@@ -8,6 +8,8 @@ import { setTextFilter } from './action/filters';
 import "normalize.css/normalize.css";
 import "./style/style.scss"
 import getVisibleExpenses from './selector/expenses';
+import "./firebase/firebase";
+
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: "water bill", amount: 4500}));
